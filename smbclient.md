@@ -21,6 +21,18 @@ $ smbclient \\\\machine_name\\share_name (3/3)
 $ smbclient \\\\machine_name\\share_name -U username
 # When accessing with a username
 ```
+
+# nmap scan for users/shares
+```
+$ nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <target_IP>
+```
+
+# smbget to download shares
+```
+$ smbget -R smb://<target_IP>/share_name
+# enter username:password as nothing
+```
+
 # enum4linux
 ```
 enum4linux [options] <target_IP>
