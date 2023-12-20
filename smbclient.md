@@ -3,6 +3,8 @@
 ```
 $ smbclient -L <target_IP>
 # find out what the shares on the target machine
+
+*NOTE: you can also use the enum4linux tool to find smb shares*
 ```
 
 # In the shell, the '\\' has special meaning. Here are work arounds.
