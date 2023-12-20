@@ -21,3 +21,18 @@ $ smbclient \\\\machine_name\\share_name (3/3)
 $ smbclient \\\\machine_name\\share_name -U username
 # When accessing with a username
 ```
+# enum4linux
+```
+enum4linux [options] <target_IP>
+
+TAG            FUNCTION
+
+-U             get userlist
+-M             get machine list
+-N             get namelist dump (different from -U and-M)
+-S             get sharelist
+-P             get password policy information
+-G             get group and member list
+
+-a             all of the above (full basic enumeration)
+```
