@@ -25,23 +25,28 @@ $ find /tmp -regex ".*f.*t"                  Find regex pattern (regex must incl
 
 Folders and files that can be written to or executed from:
 ```
-find / -writable -type d 2>/dev/null   : Find world-writeable folders
-find / -perm -222 -type d 2>/dev/null  : Find world-writeable folders
-find / -perm -o w -type d 2>/dev/null  : Find world-writeable folders
-find / -perm -o x -type d 2>/dev/null  : Find world-executable folders
+$ find / -writable -type d 2>/dev/null   : Find world-writeable folders
+$ find / -perm -222 -type d 2>/dev/null  : Find world-writeable folders
+$ find / -perm -o w -type d 2>/dev/null  : Find world-writeable folders
+$ find / -perm -o x -type d 2>/dev/null  : Find world-executable folders
 ```
 
 Find development tools and supported languages:
 ```
-find / -name perl*
-find / -name python*
-find / -name gcc*
+$ find / -name perl*
+$ find / -name python*
+$ find / -name gcc*
 ```
 
 Find specific file permissions:
 ```
-find / -perm -u=s -type f 2>/dev/null
+$ find / -perm -u=s -type f 2>/dev/null
 # Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
 ```
+
+Execute commands with find:
+```
+$ find /directory/name -exec <command> \;
+$ find /root -exec cat "/root/root.txt" \;  : Read a file called root.txt in /root directory
 
 
