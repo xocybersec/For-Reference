@@ -42,6 +42,9 @@ Find specific file permissions:
 ```
 $ find / -perm -u=s -type f 2>/dev/null
 # Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
+
+$ find / -type f -user <username> 2>/dev/null
+# Find files owned by user
 ```
 
 Execute commands with find:
