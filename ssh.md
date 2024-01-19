@@ -44,4 +44,36 @@ $ python3 -m http.server <port>
 # opens the file with nano to be edited // paste contents from the pub file here
 ```
 
-After that you can ssh into target machine with your id_rsa file from attack machine.<br>
+After that you can ssh into target machine with your id_rsa file from attack machine.<br><br>
+
+# Port Forwarding
+```
+FPipe.exe -l [local port] -r [remote port] -s [local port] [local IP]
+```
+```
+FPipe.exe -l 80 -r 80 -s 80 192.168.1.7
+```
+```
+ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
+```
+```
+ssh -L 8080:127.0.0.1:80 root@192.168.1.7 # Local Port
+```
+```
+ssh -R 8080:127.0.0.1:80 root@192.168.1.7 # Remote Port
+```
+```
+mknod backpipe p ; nc -l -p [remote port] < backpipe | nc [local IP] [local port] >backpipe
+```
+```
+mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.1.1.251 80 >backpipe # Port Relay
+```
+```
+mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe # Proxy (Port 80 to 8080)
+```
+```
+backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc
+```
+```
+localhost 80 | tee -a outflow & 1>backpipe # Proxy monitor (Port 80 to 8080)
+```
