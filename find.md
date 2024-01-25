@@ -47,6 +47,11 @@ $ find / -type f -user <username> 2>/dev/null
 # Find files owned by user
 ```
 
+Find all hidden files:
+```
+find / -type f -iname ".*" -ls 2>/dev/null
+```
+
 Execute commands with find:
 ```
 $ find /directory/name -exec <command> \;
