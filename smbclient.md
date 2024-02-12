@@ -29,7 +29,7 @@ $ nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <target_IP>
 
 # smbget to download shares
 ```
-$ smbget -R smb://<target_IP>/share_name
+$ smbget smb://<target_IP>/path/to/file
 # enter username:password as nothing
 ```
 
